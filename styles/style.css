@@ -1,0 +1,44 @@
+body {
+    background-color: #f4f4f4;
+    /* deixe os elementos flexiveis, permitindo que nos possamos usar alguns comandos de posicionamento dos elementos filhos */
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+    height: 75vh
+
+}
+
+#caixa{
+
+     background-color: #ffffff; /* cor de fundo da caixa */
+     width: 350px;  /* Largura da caixinha  */
+     padding: 20px; /* primeiro valor em cima e embaixo e segundo valor para as laterais  */
+     border: 1px solid #e816f0; /* borda, espessura e cor */
+     border-radius: 10px
+}
+
+#input-tarefa{
+    width: 70%; /* largura calculada em cima do elemento pai (que é a caixa)*/
+    padding: 10px;  /* espaços internos do elemento */
+    border-radius: 5px; /* arredondamento das bordas do input */
+    border: 1px solid #cccccc;
+
+}
+
+#botao-adicionar{
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #cccccc ;
+    border-radius: 5px; /* arredondamento das bordas do input */
+    margin: 15px;
+    background-color: #059905;
+    color: #f4f4f4;
+    text-align: center;
+}
+
+#titulo {
+    color: #e816f0;
+    text-align: center; /* alinha o texto ao centro */
+}
+
+
