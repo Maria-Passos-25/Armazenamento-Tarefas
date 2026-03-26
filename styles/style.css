@@ -11,7 +11,7 @@ body {
 #caixa{
 
      background-color: #ffffff; /* cor de fundo da caixa */
-     width: 350px;  /* Largura da caixinha  */
+     width: 450px;  /* Largura da caixinha  */
      padding: 20px; /* primeiro valor em cima e embaixo e segundo valor para as laterais  */
      border: 1px solid #e816f0; /* borda, espessura e cor */
      border-radius: 10px
@@ -20,7 +20,7 @@ body {
 #input-tarefa{
     width: 70%; /* largura calculada em cima do elemento pai (que é a caixa)*/
     padding: 10px;  /* espaços internos do elemento */
-    border-radius: 5px; /* arredondamento das bordas do input */
+    border-radius: 10px; /* arredondamento das bordas do input */
     border: 1px solid #cccccc;
 
 }
@@ -28,7 +28,7 @@ body {
 #botao-adicionar{
     padding: 10px;
     cursor: pointer;
-    border: 1px solid #cccccc ;
+    border: 1px solid #cccccc;
     border-radius: 5px; /* arredondamento das bordas do input */
     margin: 15px;
     background-color: #059905;
@@ -39,6 +39,31 @@ body {
 #titulo {
     color: #e816f0;
     text-align: center; /* alinha o texto ao centro */
+}
+
+.botao-remover {
+    border: none;
+    background-color: none;
+    cursor: pointer;
+}
+
+li {
+    list-style : none; /* remove o estilo da lista (remove as bolinhas) */
+    background-color: #EEEEEE;
+    padding: 10px ;
+    border-radius: 10px;
+    margin-bottom: 10px;  /* margem na base do elemento */
+
+    display: flex;
+    justify-content: space-between; /*coloca espaço entre os elementos */
+    align-items: center;
+    
+}
+
+
+#lista-Tarefas {
+    padding: 0;
+    margin: 0px 15px 0px 0px;
 }
 
 

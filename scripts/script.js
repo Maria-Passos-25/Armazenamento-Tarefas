@@ -26,6 +26,81 @@ function mostrarTarefas() {
    for (let i= 0; i < tarefas.length; i++) {
        const li = document.createElement("li");
        li.innerText = tarefas[i];
-   }
+  
+
+   const botaoRemover = document.createElement("button");
+    botaoRemover.innerText = "🗑️";
+    botaoRemover.className = "botao-remover";
+
+    botaoRemover.addEventListener("click", () => {
+        removerTarefas(i);
+
+    })
+
+
+    li.appendChild(botaoRemover);
+    listaTarefas.appendChild(li);
+ }
 
 }
+
+function removerTarefas(posicaoTarefa) {
+    // splice -> (posição inicial e a quantidade de itens)
+    tarefas.splice(posicaoTarefa, 1);
+
+    //depois de remover, chama a função de salvar no localStorage
+    salvarTarefas();
+
+    //mostra as tarefas atualizadas, sem as que foram removidas.
+    mostrarTarefas();
+}
+
+// função para adicionar tarefas
+function adicionarTarefas() {
+    const valorTarefa = inputTarefa.value;
+
+    if(valorTarefa === "") {
+        alert("Digite uma tarefa!");
+        return; //não deixa que a tarefa vazia apareça na tela
+    }
+
+    tarefas.push(valorTarefa); // adiciona a tarefa digitada dentro do array
+    inputTarefa.value = "";
+
+    salvarTarefas();
+    mostrarTarefas();
+
+    
+}
+
+//função para carregar tarefas salvas no localStorage
+    function carregarTarefas() {
+        // pega as tarefas e armazena na varuavel 'tarefasSalvas'
+        const TarefasSalvas = localStorage.getItem("tarefas");
+
+        // se existir alguma coisa dentro de tarefas salvas
+        // então converte a tarefa e mostra na tela.
+
+        if(TarefasSalvas){
+            // transforma o texto em array novamente
+            tarefas = JSON.parse(TarefasSalvas); 
+            mostrarTarefas();
+        }
+    }
+
+    botaoAdicionar.addEventListener("click", adicionarTarefas);
+    carregarTarefas();
+
+
+// Ação para o "botaoAdicionar" ser ativado quando eu clicar no botão enter do teclado
+
+// quando apertar qualquer tecla no input
+inputTarefa.addEventListener("keydown", function(event) {
+
+    // se a tecla for Enter
+    if (event.key === "Enter") {
+
+        // faz a mesma coisa que clicar no botão (adiciona a tarefa)
+        adicionarTarefas();
+    }
+});
