@@ -1,7 +1,7 @@
 const inputTarefa = document.getElementById("input-tarefa");
 const botaoAdicionar = document.getElementById("botao-adicionar");
 const listaTarefas = document.getElementById("lista-Tarefas");
-
+const botaoRemoverTudo = document.getElementById("botao-remover-tudo");
 
 // criando listas vazia
 let tarefas = [];
@@ -27,21 +27,43 @@ function mostrarTarefas() {
        const li = document.createElement("li");
        li.innerText = tarefas[i];
   
+       const botaoConcluido = document.createElement("button");
+        botaoConcluido.innerText = "";
+        botaoConcluido.className = "botao-concluido";
 
-   const botaoRemover = document.createElement("button");
-    botaoRemover.innerText = "🗑️";
-    botaoRemover.className = "botao-remover";
+         botaoConcluido.addEventListener("click", () => {
+             botaoConcluido.innerText = "✅";
+         })
 
-    botaoRemover.addEventListener("click", () => {
-        removerTarefas(i);
+        const botaoRemover = document.createElement("button");
+        botaoRemover.innerText = "🗑️";
+        botaoRemover.className = "botao-remover";
 
-    })
+         botaoRemover.addEventListener("click", () => {
+         removerTarefas(i);
+         })
 
-
+        
+    
     li.appendChild(botaoRemover);
+    li.appendChild(botaoConcluido);
     listaTarefas.appendChild(li);
+  
  }
 
+}
+
+
+function concluirTarefas(posicaoTarefa) {
+    // splice -> (posição inicial e a quantidade de itens)
+    //tarefas.splice(posicaoTarefa, 1);
+    
+
+    //depois de remover, chama a função de salvar no localStorage
+    salvarTarefas();
+
+    //mostra as tarefas atualizadas, sem as que foram removidas.
+    mostrarTarefas();
 }
 
 function removerTarefas(posicaoTarefa) {
@@ -54,6 +76,9 @@ function removerTarefas(posicaoTarefa) {
     //mostra as tarefas atualizadas, sem as que foram removidas.
     mostrarTarefas();
 }
+
+
+
 
 // função para adicionar tarefas
 function adicionarTarefas() {
@@ -104,3 +129,16 @@ inputTarefa.addEventListener("keydown", function(event) {
         adicionarTarefas();
     }
 });
+
+
+
+
+// função para remover todas as tarefas
+function removerTodasTarefas() {
+    tarefas = [];           // limpa o array de tarefas
+     mostrarTarefas();       // atualiza a tela
+}
+
+// adiciona o evento de clique
+botaoRemoverTudo.addEventListener("click", removerTodasTarefas);
+

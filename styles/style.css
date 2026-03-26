@@ -48,7 +48,7 @@ body {
 }
 
 li {
-    list-style : none; /* remove o estilo da lista (remove as bolinhas) */
+    list-style: none; /* remove o estilo da lista (remove as bolinhas) */
     background-color: #EEEEEE;
     padding: 10px ;
     border-radius: 10px;
